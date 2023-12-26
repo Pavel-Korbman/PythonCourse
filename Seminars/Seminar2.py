@@ -110,11 +110,42 @@ while count <= number:
         mass_max = mass
     count += 1
 print(f'Самый лёгкий арбуз весит {mass_min}кг, самый тяжелый арбуз весит {mass_max}кг')
-"""
+
 
 #lst = [5, 1, 6, 5, 9]
 lst = list(map(int, input('Введите массы арбузов через пробел').split())) # map применяет int к каждому элементу массива
 print(f'Тяжелый арбуз весит {max(lst)}, лёгкий арбуз {min(lst)}')
+"""
+"""
+Найти чётные элементы списка
+"""
+numbers = [10, 20, 25, 30, 35]
+#for elements in numbers: # Обходим все элементы
+#    if elements % 2 == 0:
+#        print(f'{elements} - чётное')
+#    else:
+#        print(f'{elements} - не чётное')
+"""
+#for i in range(len(numbers)): # Начинаем с 1 элемента
+for i in range(1, len(numbers)): # Начинаем со 2 элемента
+    if numbers[i] % 2 == 0:
+        print(f'{numbers[i]} - чётное')
+    else:
+        print(f'{numbers[i]} - не чётное')
+"""
+count = 0
+while count < len(numbers):
+    if numbers[count] % 2 == 0:
+        print(f'{numbers[count]} - чётное')
+    else:
+        print(f'{numbers[count]} - не чётное')
+    count += 1
+
+
+
+
+
+
 
 
 
