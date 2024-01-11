@@ -60,8 +60,7 @@ lst_obj = [{"V": "S001"}, {"V": "S002"}, {"VI": "S001"}, {"VI": "S005"},
 '''
 #ТРАДИЦИОННЫЙ ИТЕРАТОР
 new_set = set()
-'''
-'''
+
 for el in lst_obj:
     for val in el.values():
         new_set.add(val)
