@@ -22,3 +22,26 @@ for i in range(len(list_1)):
     count = 0
 print(*list_1)
 '''
+
+# Задача №27
+'''
+Пользователь вводит текст(строка). 
+Словом считается последовательность непробельных символов идущих подряд, 
+слова разделены одним или большим числом пробелов. 
+Определите, сколько различных слов содержится в этом тексте. 
+Input: 
+She sells sea shells on the sea shore 
+The shells that she sells are sea shells I'm sure.
+So if she sells sea shells on the sea shore 
+I'm sure that the shells are sea shore shells 
+Output: 
+13
+'''
+'''
+string = "She sells sea shells on the sea shore The shells that she sells are sea shells I'm sure.So if she sells sea shells on the sea shore I'm sure that the shells are sea shore shells"
+letters = string.upper().split()
+dif_letters = set(letters)
+#print(letters)
+print(len(dif_letters))
+'''
+
