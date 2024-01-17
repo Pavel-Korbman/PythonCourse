@@ -122,7 +122,7 @@ while n < 0:
         n = max_number 
 print(n)
 '''
-
+'''
 n = int(input())
 max_number = n
 while n != 0:
@@ -130,3 +130,64 @@ while n != 0:
     if max_number < n:
         max_number = n
 print(max_number)
+'''
+# ФУНКЦИИ:
+'''
+Есть 2 группы пользовательских функций: Именные и Анонимные
+'''
+# ИМЕННЫЕ функции:
+'''
+def func(): # def - имя функции. Функция вызывается именем
+    res = 2 + 2
+    return res
+a = func()
+print(a)
+print (func())
+'''
+'''
+def quad(a, b):
+    res = a + b
+    return res
+
+c = quad(3, 5)  # Позиционные переменные - принимают значения по позиции
+d = quad(5, 3)
+'''
+
+'''
+def quad(a, b):
+    res = a + b
+    return res
+
+
+c = quad(a=3, b=5)  # Пприсваемые переменные - принимают значения по именам переменных (именованные переменные)
+print(c)
+'''
+'''
+def summ(a, b=0):  # a - обязательный элемент
+    res = a + b
+    return res
+
+
+c = summ(a=3)
+print(c)
+'''
+
+# АНОНИМНЫЕ функции (для простых математических выражений:
+
+extent = lambda x, y: x ** y
+
+print(extent(2, 4))
+
+# ФУНКЦИЯ ОТ КОРТЕЖА ЭЛЕМЕНТОВ (сколько угодно элементов)
+
+def function(*args):  #  *args - кортеж
+    return args[0] + args[1] + args[2]
+
+print(function(1, 2, 8))
+
+
+# ФУНКЦИЯ ОТ СЛОВАРЯ
+def function_1(**kwargs):  #  **kwargs - словарь
+    return kwargs['a'] + kwargs['b'] + kwargs['c']
+
+print(function_1(a=1, b=2, c=11))
