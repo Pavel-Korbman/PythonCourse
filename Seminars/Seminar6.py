@@ -160,6 +160,7 @@ print(sum(res))
 Вывод: 220 284
 '''
 
+
 # n = int(input('Введите число N:'))
 # m = input('Введите число M:')
 # k = int(input('Введите число K:'))
@@ -172,15 +173,17 @@ def get_sum(n):
             summ += el
     return summ
 
+
 def get_friendly(k):
     res = []
-    for n in range(1, k+1):
+    for n in range(1, k + 1):
         if n not in res:
             m = get_sum(n)
             if n == get_sum(m) and n != m:
                 res.append(n)
                 res.append(m)
     return res
+
 
 print(*get_friendly(300))
 
