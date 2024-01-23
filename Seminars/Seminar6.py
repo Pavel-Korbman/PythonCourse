@@ -159,16 +159,30 @@ print(sum(res))
 Ввод: 300
 Вывод: 220 284
 '''
-'''
-n = input('Введите число N:')
-m = input('Введите число M:')
-k = input('Введите число K:')
 
-summ_n = 0
-for i in n:
-    if n % i == 0:
-        summ_n += i
-'''
+# n = int(input('Введите число N:'))
+# m = input('Введите число M:')
+# k = int(input('Введите число K:'))
+
+
+def get_sum(n):
+    summ = 0
+    for el in range(1, n):
+        if n % el == 0:
+            summ += el
+    return summ
+
+def get_friendly(k):
+    res = []
+    for n in range(1, k+1):
+        if n not in res:
+            m = get_sum(n)
+            if n == get_sum(m) and n != m:
+                res.append(n)
+                res.append(m)
+    return res
+
+print(*get_friendly(300))
 
 # ДОМАШКА:
 
@@ -208,3 +222,26 @@ for i in range(len(list_1)):
 '''
 
 # Задача №2
+'''
+Заполните массив элементами арифметической прогрессии. 
+Её первый элемент a1 , разность d и количество элементов n будет задано автоматически. 
+Формула для получения n-го члена прогрессии: an = a1 + (n-1) * d.
+
+На входе:
+a1 = 2
+d = 3
+n = 4
+На выходе:
+2
+5
+8
+11
+'''
+'''
+a1 = 2
+d = 3
+n = 4
+a = [a1 + (i-1) * d for i in range(1, n+1)]
+for el in a:
+    print(el)
+'''
