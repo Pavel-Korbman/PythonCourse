@@ -165,7 +165,7 @@ print(sum(res))
 # m = input('Введите число M:')
 # k = int(input('Введите число K:'))
 
-
+'''
 def get_sum(n):
     summ = 0
     for el in range(1, n):
@@ -186,6 +186,8 @@ def get_friendly(k):
 
 
 print(*get_friendly(300))
+'''
+
 
 # ДОМАШКА:
 
