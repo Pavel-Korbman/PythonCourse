@@ -226,10 +226,21 @@ print(list(enumerate(users)))  # [(0, 'user1'), (1, 'user2'), (2, 'user3)]
 ○ Если файла не существует, программа выдаст ошибку.
 '''
 
+
+# Режим a:
+'''
 colors = ['red', 'green', 'blue']
-# data = open('file.txt', 'a', encoding='utf-8')
+# data = open('file_1.txt', 'a', encoding='utf-8')
 # здесь указываем режим, в котором будем работать. Кодировку можно не указывать. По умолчанию utf-8
 data = open('file_1.txt', 'a')
 
 data.writelines(colors) # разделителей не будет
 data.close()
+'''
+# Конструкция with
+
+with open('file_1.txt', 'w') as data:
+    data.write('Any string\n')
+    data.write('line 2\n')
+
+print('Что угодно')

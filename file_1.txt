@@ -1,1 +1,2 @@
-redgreenblue
+Any string
+line 2
