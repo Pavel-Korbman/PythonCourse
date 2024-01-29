@@ -230,11 +230,14 @@ stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
 На выходе:
 Парам пам-пам
 '''
+'''
 stroka = 'пара-ра-рам'
 stroka = 'пара-ра-рам рам-пам-папам па-ра-па-дам'
 
-def glasnie (lst):
+
+def glasnie(lst):
     return [1 for el in lst if el.lower() in ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е']]
+
 
 fraza = stroka.split()
 if len(fraza) < 2:
@@ -248,8 +251,9 @@ else:
     else:
         print('Парам пам-пам')
 
-
-
     # print(letters)
     # print(numbers)
     # print(res)
+
+'''
+
