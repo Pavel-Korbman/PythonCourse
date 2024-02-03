@@ -117,3 +117,67 @@
 #
 # # Сумма:
 # print(t_name['population'].sum())
+
+# Общая статистика:
+'''.describe()
+count-Общеекол-вонепустыхстрок
+mean-среднеезначениевстолбце
+std-стандартноеотклонениеотсреднегозначения
+min-минимальноезначение max-максимальноезначение
+Числа25%,50%,75%-перцентили '''
+# print(t_name.describe())
+
+# ГРАФИКИ:
+
+# Seaborn — это библиотека для создания статистических графиков на Python
+
+import seaborn as sns
+
+# Точечный график (Scatterplot):
+
+sns.scatterplot(data=t_name,x="longitude",y="latitude")
+
+# Третий параметр hue="total_rooms" отразится на отдельном окне и цветом точек в графике
+sns.scatterplot(data=t_name,x="households",y="population", hue="total_rooms")
+
+# Размер точек (size):
+sns.scatterplot(data=t_name,x="households",y="population", hue="total_rooms", size=10)
+
+# Визуализировать сразу несколько отношений: класс PairGrid внутри seaborn.
+# PairGrid визуализирует все возможные отношения, в соответствии с выбранным типом графика.
+
+cols = ['population', 'median_income', 'housing_median_age', 'median_house_value'] # Выбираем колонки
+g = sns.PairGrid(t_name[cols]) # Приминяем PairGrid
+g.map(sns.scatterplot)
+
+# ЛИНЕЙНЫЕ ГРАФИКИ
+
+# Для генерации линейных графиков в seaborn используется relplot функцию. x,y-столбцы.
+# Для линейных графиков ыбирается тип line:
+
+sns.relplot(x="latitude",y="median_house_value",kind="line",data=t_name)
+
+# ГИСТОГРАММЫ:
+'''Cтолбчатые диаграммы. 
+По оси x обычно указывают значение, 
+по оси y - встречаемость (кол-во значений в выборке)'''
+sns.histplot(data=t_name,x="median_income")
+
+# Разбить возрастные группы на 3 категории до 20 лет, от 20 до 50 от 50.
+# Функция .loc используется для получения группы строк и столбцов по меткам или логическому массиву в DataFrame
+t_name.loc[df['housing_median_age']<=20,'age_group']='Молодые'
+t_name.loc[(df['housing_median_age'] > 20) & (df['housing_median_age'] <= 50), 'age_group']='Ср.возраст'
+t_name.loc[df['housing_median_age']>50,'age_group']='Пожилые'
+# В таблице появился новый столбец 'age_group'
+
+# .groupby() используется для разделения и выделения некоторой части данных
+# из всего набора данных на основе определенных предопределенных условий или параметров.
+
+df.groupby('age_group')['median_income'].mean().plot(kind='bar') # Медианный дохолд по возростным группам
+
+# Поделим группы на 2: медианный доход выше 6 - 'rich' и ниже 6 - 'everyone_else'
+df.loc[df['median_income']>6,'income_group']='rich'
+df.loc[df['median_income']<6,'income_group']='everyone_else'
+
+# Изобразим дополнительное измерение с помощью оттенка в виде возрастных групп и групп по доходам
+sns.displot(df,x="median_house_value",hue="income_group")
