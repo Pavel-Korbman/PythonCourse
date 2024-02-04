@@ -37,14 +37,41 @@ print(data.describe())  # Общая статистика:
 2. Показать максимальное median_house_value, где median_income = 3.1250 
 3. Узнать какая максимальная population в зоне минимального значения median_house_value
 '''
-from pandas import read_csv
-data = read_csv('california_housing_test.csv')
+# from pandas import read_csv
+# data = read_csv('california_housing_test.csv')
 
 # print(f'Минимальное значение: {data['median_house_value'].min()}, максимальное значение: {data['median_house_value'].max()}')
 
 # print(data[data['median_income'] == 3.1250]['median_house_value'].max())
 
-print(data[data['median_house_value'] == data['median_house_value'].min()]['population'].max())
+# print(data[data['median_house_value'] == data['median_house_value'].min()]['population'].max())
 # print(data.columns)
 
-#
+# ДОМАШКА
+# Задача 1
+'''
+
+Дан файл california_housing_train.csv. 
+Определить среднюю стоимость дома , 
+где количество людей от 0 до 500 (population) 
+и сохранить ее в переменную avg.
+Используйте модуль pandas.
+'''
+'''
+from pandas import read_csv
+data = read_csv('california_housing_test.csv')
+avg = data[data['population'] < 500]['median_house_value'].mean()
+'''
+
+# Задача 2
+'''
+Дан файл california_housing_train.csv.
+Найти максимальное значение переменной "households" 
+в зоне минимального значения переменной min_population 
+и сохраните это значение в переменную max_households_in_min_population.
+Используйте модуль pandas
+'''
+from pandas import read_csv
+data = read_csv('california_housing_test.csv')
+max_households_in_min_population = data[data['population'] == data['population'].min()]['households'].max()
+print(max_households_in_min_population)
